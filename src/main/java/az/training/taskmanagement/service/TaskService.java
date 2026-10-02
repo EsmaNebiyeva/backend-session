@@ -1,5 +1,6 @@
 package az.training.taskmanagement.service;
 
+import az.training.taskmanagement.exception.InvalidTitleException;
 import az.training.taskmanagement.model.Priority;
 import az.training.taskmanagement.model.Task;
 import az.training.taskmanagement.model.TaskStatus;
@@ -30,7 +31,8 @@ public class TaskService {
 
     public Task createTask(String title, String description, Priority priority, Long userId, Long categoryId) {
         if (title == null || title.isBlank()) {
-            throw new IllegalArgumentException("title boş ola bilməz");
+            //throw new IllegalArgumentException("title boş ola bilməz");
+            throw new InvalidTitleException("Title boş ola bilməz");
         }
         if (userRepository.findById(userId).isEmpty()) {
             throw new IllegalArgumentException("User tapılmadı: id=" + userId);

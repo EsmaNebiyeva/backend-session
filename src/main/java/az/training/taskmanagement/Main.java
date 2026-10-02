@@ -44,8 +44,10 @@ public class Main {
                 "8 dərslik plan", Priority.HIGH, darya.getId(), c1.getId()); //
         Task t2 = taskService.createTask("Repository nümunəsi yaz",
                 "In-memory CRUD", Priority.MEDIUM, darya.getId(), c2.getId());//
-        Task t3 = taskService.createTask("Java essentials təkrar et",
+        System.out.println("EXCEPTION");
+        Task t3  = taskService.createTask("Java essentials təkrar et",
                 null, Priority.LOW, ali.getId(), c1.getId());//
+
         System.out.println("\nYaradılan task-lar:");
         taskService.getAllTasks().forEach(t -> System.out.println("  " + t));
 

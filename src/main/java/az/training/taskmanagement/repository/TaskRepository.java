@@ -59,12 +59,9 @@ public class TaskRepository {
     }
 
     public List<Task> findbyTaskStatus(TaskStatus status) {
-        List<Task> result = new ArrayList<>();
-        for (Task task : storage.values()) {
-            if (task.getStatus() != null && task.getStatus().equals(status)) {
-                result.add(task);
-            }
-        }
+        List <Task> result = storage.values().stream().
+                 filter(task -> task.getStatus() != null && task.getStatus().equals(status))
+                 .toList();
         return result;
     }
 
